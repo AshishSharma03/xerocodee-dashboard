@@ -105,8 +105,8 @@ function Dashboard() {
                   desc={"Connect to Source Code"}
                 >
                   <CustomSmallCard icon="/Assets/icon/Services/Github.svg" color="#C0C0C0" name={"Github"} />
-                  <CustomSmallCard icon="/Assets/icon/Services/gitlab.svg" color="#F77556" name={"Gitlab"} />
-                  <CustomSmallCard icon="/Assets/icon/Services/gitbucket.svg" color="#4192FF" name={"Bitbucket"} />
+                  <CustomSmallCard icon="/Assets/icon/Services/GitLab.svg" color="#F77556" name={"Gitlab"} />
+                  <CustomSmallCard icon="/Assets/icon/Services/GitBucket.svg" color="#4192FF" name={"Bitbucket"} />
                 </CustomizedSteppers>
                 <CustomizedSteppers
                   title={"Step 3"}
