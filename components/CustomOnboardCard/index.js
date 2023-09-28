@@ -81,7 +81,7 @@ function OnboardCard({ children, Link, href ,LinkText}) {
             <Stack direction={"row"} gap={"20px"}>
                 <SocialButton
                 text={"Sign Up With Google"}
-                srcicon={"/Assets/icon/Google.ico"}
+                srcicon={"/Assets/icon/google.ico"}
               />
                <SocialButton
                 text={"Sign Up With Github"}
