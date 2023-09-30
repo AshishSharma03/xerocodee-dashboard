@@ -12,7 +12,8 @@ const SideStick = styled(Box)({
   boxShadow: "5px 5px 10px 0px rgba(0, 0, 0, 0.07)",
 });
 
-export default function CustomizedSteppers({ title, last, children, desc }) {
+export default function CustomizedSteppers({ title, last, children, desc,disable }) {
+    
   return (
     <>
       <Box sx={{ position: "relative" }}>
@@ -29,7 +30,7 @@ export default function CustomizedSteppers({ title, last, children, desc }) {
             direction={{ lg: "row", md: "column", sm: "row", xs: "column" }}
             gap={{lg:"30px",md:"20px",sm:"20px",xs:"20px"}}
           >
-            {children}
+            {(!disable)?children:""}
           </Stack>
         </Box>
         <Stack
@@ -49,7 +50,7 @@ export default function CustomizedSteppers({ title, last, children, desc }) {
             <Box
               sx={{
                 padding: "20px",
-                background: theme.palette.primary.main,
+                background:(!disable)? theme.palette.primary.main:"#D6D6D6",
                 borderRadius: "20px",
                 position: "absolute",
               }}

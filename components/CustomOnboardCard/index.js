@@ -19,6 +19,7 @@ import OnBoardButton from "../CustomButton";
 import theme from "../../themeRegistery/theme";
 import Logo from "../CoreAssets/Logo";
 
+
 const CustomOnboardCard = styled(Box)({
   position: "relative",
   background: "#fff",
@@ -26,7 +27,7 @@ const CustomOnboardCard = styled(Box)({
   borderRadius: "0px 35px 35px 35px",
 });
 
-function OnboardCard({ children, Link, href ,LinkText}) {
+function OnboardCard({ children, Link, href, LinkText,socialButtons,HigliteMsg,descMsg,center }) {
   return (
     <CustomOnboardCard>
       <Box
@@ -50,43 +51,33 @@ function OnboardCard({ children, Link, href ,LinkText}) {
               sx={{ width: "120px" }}
             />
           </Stack>
-          <Stack gap={"1px"} marginBottom={"20px"}>
+          <Stack gap={"1px"} >
             <Typography textAlign={"center"} fontSize={"32px"}>
-              Hello!
+              {HigliteMsg}
             </Typography>
             <Stack direction={"row"} alignItems={"end"}>
               <Box sx={{ flex: 1, height: "2px", background: "#AAB2C873" }} />
-              <Typography
-                fontSize={"14px"}
-                sx={{ color: "#00002280",}}
-              >
-                Create your Account
+              <Typography fontSize={"14px"} sx={{ color: "#00002280" }}>
+                {descMsg}
               </Typography>
               <Box sx={{ flex: 1, height: "2px", background: "#AAB2C873" }} />
             </Stack>
           </Stack>
-          <Stack gap={"15px"} height={"100%"} justifyContent={"center"}>
+          <Stack gap={"15px"} height={"100%"} justifyContent={center} marginTop={!center?"20px":""}>
             {children}
             <Typography
               textAlign={"center"}
               sx={{
                 textTransform: "uppercase",
                 color: "#00002280",
-                fontSize:"14px",
-                
+                fontSize: "14px",
               }}
             >
               or
             </Typography>
-            <Stack direction={"row"} gap={"20px"}>
-                <SocialButton
-                text={"Sign Up With Google"}
-                srcicon={"/Assets/icon/google.ico"}
-              />
-               <SocialButton
-                text={"Sign Up With Github"}
-                srcicon={"/Assets/icon/Github.ico"}
-                />
+            <Stack direction={"row"} gap={{lg:"20px",md:"20px",sm:"20px",xs:"20px"}}>
+              {socialButtons}
+              
             </Stack>
 
             <Typography

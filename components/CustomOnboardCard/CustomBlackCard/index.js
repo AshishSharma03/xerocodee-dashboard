@@ -21,7 +21,7 @@ const InnerCustomOnboardCard = styled(Box)({
 
 
 
-function BlankOnboardCard({children}) {
+function BlankOnboardCard({children,name}) {
   return (
     <CustomOnboardCard>
       <InnerCustomOnboardCard>
@@ -30,7 +30,7 @@ function BlankOnboardCard({children}) {
         </Stack>
         <Stack alignItems={"center"}>
           <Typography sx={{ fontSize: "25px", }}>
-            Welcome Arya Soni !
+            Welcome {name} !
           </Typography>
         </Stack>
         <Stack alignItems={"center"}>

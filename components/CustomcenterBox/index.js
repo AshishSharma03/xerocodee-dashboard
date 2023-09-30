@@ -15,7 +15,8 @@ const BackgroundBox = styled(Box)({
   display:'flex',
   background: theme.palette.secondary.main,
   justifyContent:'center',
-  alignItems:"center"
+  alignItems:"center",
+  position:"relative"
 });
 
 function CenterBox({ children,headtitle}) {

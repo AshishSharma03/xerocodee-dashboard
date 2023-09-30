@@ -24,6 +24,7 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlined";
 import NativeSelect from "@mui/material/NativeSelect";
 import Logo from "../../CoreAssets/Logo";
+import { signOut } from "next-auth/react";
 
 const CustomIconButton = styled(IconButton)({
   width: "fit-content",
@@ -127,7 +128,7 @@ function Navbar() {
             size="small"
             color="primary"
             onClick={() => {
-              console.log("ss");
+              signOut()
             }}
           >
             <PersonOutlineOutlinedIcon />

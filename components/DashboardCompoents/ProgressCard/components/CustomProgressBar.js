@@ -1,5 +1,6 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
 import React from "react";
+import theme from "../../../../themeRegistery/theme";
 
 function CustomProgressBar({value}) {
   return (
@@ -21,19 +22,19 @@ function CustomProgressBar({value}) {
           justifyContent: "center",
         }}
       >
-        <Typography sx={{fontSize:"20px"}}>{`${value}%`}</Typography>
+        <Typography sx={{fontSize:"20px",color:Math.floor(value) === 100?theme.palette.primary.main:""}}>{`${Math.floor(value)}%`}</Typography>
         <CircularProgress
           variant="determinate"
           thickness={7}
           size={140}
-          value={value}
+          value={Math.floor(value)}
           sx={{ position: "absolute", color: "rgba(0,0,0,0.1)" }}
         />
          <CircularProgress
           variant="determinate"
           thickness={7}
           size={105}
-          value={value}
+          value={Math.floor(value)}
           sx={{ position: "absolute", color: "rgba(0,0,0,0.1)" }}
         />
         <CircularProgress
@@ -47,7 +48,7 @@ function CustomProgressBar({value}) {
           variant="determinate"
           thickness={8}
           size={130}
-          value={value}
+          value={Math.floor(value)}
           sx={{ position: "absolute" }}
         />
       </Box>

@@ -22,19 +22,23 @@ const CustomButtomBlack = styled(Button)({
   
   
 });
-const OnBoardButton = ({ text, onClick,variant }) => {
+const OnBoardButton = ({ text, onClick,variant,disable }) => {
   return (
     <>
     {(variant === "Outlined")?
     <CustomButtomBlack
     variant="outlined"  
     color="ease"   
-
+    onClick={onClick}
+    disabled={disable}
     >
       {text}
     </CustomButtomBlack>
     :<CustomButtom
       variant="contained"
+  
+      onClick={onClick}
+      disabled={disable}
       >
       {text}
     </CustomButtom>
