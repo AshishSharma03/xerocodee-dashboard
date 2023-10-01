@@ -4,8 +4,7 @@ import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from "next-auth/providers/credentials";
 import { UpstashRedisAdapter } from "@next-auth/upstash-redis-adapter";
 import { Redis ,upstashRedisClient} from "@upstash/redis";
-import { signIn } from "next-auth/react";
-
+import WorkOSProvider from "next-auth/providers/workos";
 
 const authOptions = {
 
@@ -29,6 +28,13 @@ const authOptions = {
     GoogleProvider({
         clientId : process.env.GOOGLE_CLIENT_ID,
         clientSecret :process.env.GOOGLE_CLIENT_SECRET
+    }),
+    WorkOSProvider({
+      clientId: process.env.WORKOS_CLIENT_ID,
+      clientSecret: process.env.WORKOS_API_KEY,
+      client: {
+        token_endpoint_auth_method: 'client_secret_post',
+      },
     }),
     
     CredentialsProvider({

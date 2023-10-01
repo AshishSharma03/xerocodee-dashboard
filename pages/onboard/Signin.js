@@ -10,7 +10,7 @@ import { signIn } from "next-auth/react";
 import { ErrorWRapper } from "./Signup";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import {  Alert, CircularProgress, IconButton } from "@mui/material";
+import {  Alert, Button, CircularProgress, IconButton, Typography } from "@mui/material";
 import axios from "axios";
 import LoadingScreen from "../../components/CoreAssets/LoadingScreen";
 
@@ -79,6 +79,14 @@ function Signin() {
     
   }
 
+  const onSubmit = async ({ team }) => {
+
+    const organization = 'org_01HBNABT4APDDB3F1DPGX5PDHA';
+    signIn('workos', undefined, {
+      organization,
+    });
+  };
+
   return (
     <CenterBox headtitle={"sign in"}>
       <OnboardCard
@@ -130,6 +138,7 @@ function Signin() {
          type={visible ? "text" : "password"}/>
          </ErrorWRapper>
         <OnBoardButton  disable={wait} text={ wait?<CircularProgress size="25px"  thickness={7} sx={{color:"#fff"}} />:"Sign in"} onClick={handleLogin} />
+        <Button onClick={onSubmit} >Login With SSO</Button>
       </OnboardCard>
     </CenterBox>
   );
