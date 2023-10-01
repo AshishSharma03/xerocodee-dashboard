@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react";
 
 function YourRole() {
   const { data : session,status} = useSession()
-  const [active,setActive] = useState(-1); 
+  const [active,setActive] = useState({id:2,type:"Organisation"}); 
   const router =  useRouter()
     const handleRole =()=>{
       router.push('/onboard/Service')
@@ -24,13 +24,13 @@ function YourRole() {
         <Box sx={{ paddingTop: {lg:"70px",xs:"40px"} }}>
           <Grid container spacing={"12px"}>
             <Grid item lg={4} md={4} sm={12} xs={12} textAlign={"center"}>
-              <OnBoardButton variant={active.id === 1? "contained" :"Outlined" } onClick={()=>{setActive({id:1})}} text={"Developer"} />
+              <OnBoardButton variant={active.id === 1? "contained" :"Outlined" } onClick={()=>{setActive({id:1,type:"Developer"})}} text={"Developer"} />
             </Grid>
             <Grid item lg={4} md={4} sm={12} xs={12} textAlign={"center"}>
-              <OnBoardButton variant={active.id === 2? "contained" :"Outlined" } onClick={()=>{setActive({id:2})}}text={"Organisation"} />
+              <OnBoardButton variant={active.id === 2? "contained" :"Outlined" } onClick={()=>{setActive({id:2,type:"Organisation"})}}text={"Organisation"} />
             </Grid>
             <Grid item lg={4} md={4} sm={12} xs={12} textAlign={"center"}>
-              <OnBoardButton variant={active.id === 3? "contained" :"Outlined" } onClick={()=>{setActive({id:3})}}  text={"Developer"} />
+              <OnBoardButton variant={active.id === 3? "contained" :"Outlined" } onClick={()=>{setActive({id:3,type:"Developer"})}}  text={"Developer"} />
             </Grid>
           </Grid>
         </Box>
@@ -43,7 +43,7 @@ function YourRole() {
           alignItems={"center"}
           gap={"10px"}
         >
-          <OnboardInput placeholder={"Organization Name"} /> <OnBoardButton text="Submit" onClick={handleRole} />
+          <OnboardInput placeholder={`${active.type} Name`} /> <OnBoardButton text="Submit" onClick={handleRole} />
         </Stack>
       </BlankOnboardCard>
     </CenterBox>

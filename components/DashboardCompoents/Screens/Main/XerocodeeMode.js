@@ -1,4 +1,4 @@
-import { Box, Stack, Switch, Typography } from "@mui/material";
+import { Box, Collapse, Stack, Switch, Typography } from "@mui/material";
 import React, { useEffect,useContext } from "react";
 
 import CustomizedSteppers from "../../Step";
@@ -76,7 +76,7 @@ function XerocodeeMode({user}) {
       </Stack>
       <Stack direction={{ lg: "row", md: "row", sm: "" }}>
         <Box minWidth={"70%"} sx={{ padding: "48px 0px" }}>
-
+          
           <CustomizedSteppers
             disable={steps[0]}
             title={"Step 1"}
@@ -95,6 +95,7 @@ function XerocodeeMode({user}) {
               name={"GCP"}
             />
           </CustomizedSteppers>
+       
           <CustomizedSteppers
             title={"Step 2"}
             disable={steps[1]}
@@ -119,6 +120,7 @@ function XerocodeeMode({user}) {
               name={"Bitbucket"}
             />
           </CustomizedSteppers>
+    
           <CustomizedSteppers
             title={"Step 3"}
             disable={steps[2]}
@@ -144,6 +146,7 @@ function XerocodeeMode({user}) {
               name={"Postgresql"}
             />
           </CustomizedSteppers>
+        
         </Box>
         <Box minWidth={"%"} sx={{ width: "100%", padding: "15px 15px" }}>
           <ProgressCard />

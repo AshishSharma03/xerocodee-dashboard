@@ -1,11 +1,14 @@
 import * as React from "react";
-import { Box, Stack, Typography, styled } from "@mui/material";
+import { Box, CircularProgress, Collapse, Stack, Typography, styled } from "@mui/material";
 import theme from "../../../themeRegistery/theme";
+import { useContext } from "react";
+import { StepCardProgress } from "../context/XerocodeContext/StepProgressProvider";
 
 const steps = ["step 1", "step 2", "step 3"];
 
 const SideStick = styled(Box)({
   height: "100%",
+  transition: "max-height 0.4s",
   padding: "2px",
   background: "#fff",
   border: "1px solid #E7E7E9",
@@ -13,7 +16,8 @@ const SideStick = styled(Box)({
 });
 
 export default function CustomizedSteppers({ title, last, children, desc,disable }) {
-    
+  const { ProgressStatus } = useContext(StepCardProgress)
+
   return (
     <>
       <Box sx={{ position: "relative" }}>
@@ -55,16 +59,23 @@ export default function CustomizedSteppers({ title, last, children, desc,disable
                 position: "absolute",
               }}
             />
-            <Box
+            {
+            (ProgressStatus === 'Progress..')?
+            <CircularProgress size={"20px"} sx={{color:"#fff"}} thickness={8}/>
+            :
+              <Box
               sx={{
                 padding: "5px",
                 background: "#fff",
                 borderRadius: "10px",
                 position: "absolute",
               }}
-            />
+              />
+            }
           </Box>
+          
           {last ? "" : <SideStick />}
+         
         </Stack>
       </Box>
     </>

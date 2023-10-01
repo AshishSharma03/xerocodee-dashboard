@@ -6,7 +6,7 @@ export const StepCardProgress = createContext()
 
 function StepProgressProvider({children}) {
     const [steps,setSteps] = useState([false,true,true])
-    const [ProgressStatus,setProgressStatus] = useState('Progress..')
+    const [ProgressStatus,setProgressStatus] = useState('')
     const [StepProgessItems,setSteProgressItems]= useState([])
 return (
     <StepCardProgress.Provider value={{setSteps,steps,StepProgessItems,setSteProgressItems,ProgressStatus,setProgressStatus}}>

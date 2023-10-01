@@ -18,9 +18,8 @@ const CustomButtomBlack = styled(Button)({
   textTransform: "capitalize",
   color: "#000",
   borderRadius: "5px",
-  width:"200px"
-  
-  
+  width:"200px",
+  zIndex:1
 });
 const OnBoardButton = ({ text, onClick,variant,disable }) => {
   return (

@@ -33,7 +33,7 @@ function OnboardCard({ children, Link, href, LinkText,socialButtons,HigliteMsg,d
       <Box
         component={"img"}
         src={"/Assets/Vector.svg"}
-        sx={{ position: "absolute", bottom: 0, right: 0, width: "50%" }}
+        sx={{ position: "absolute", bottom: 0, right: 0, width: "50%" ,zIndex:0}}
       />
       <Stack direction={"row"}>
         <Box

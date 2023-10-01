@@ -4,8 +4,11 @@ import BlankOnboardCard from "../../components/CustomOnboardCard/CustomBlackCard
 import { Box, Grid, Stack } from "@mui/material";
 import OnBoardButton from "../../components/CustomButton";
 import OnboardInput from "../../components/CustomOnboardCard/CustomInput";
+import { useRouter } from "next/router";
 
 function Service() {
+  // const [active,setActive] = useState({id:1,type:"XeroCodee"}); 
+  const route = useRouter()
   return (
     <CenterBox headtitle={"Onboard-step2"}>
       <BlankOnboardCard>
@@ -24,7 +27,7 @@ function Service() {
                 xs: "center",
               }}
             >
-              <OnBoardButton variant="Outlined" text={"Self Hosting"} />
+              <OnBoardButton  variant="Outlined"onClick={()=>{route.push('/')}} text={"Self Hosting"} />
             </Grid>
             <Grid
               item
@@ -34,7 +37,7 @@ function Service() {
               xs={12}
               textAlign={{ lg: "left", md: "left", sm: "center", xs: "center" }}
             >
-              <OnBoardButton variant="Outlined" text={"XeroCodee Hosting"} />
+              <OnBoardButton variant={"Outlined"} onClick={()=>{route.push('/')}} text={"XeroCodee Hosting"} />
             </Grid>
           </Grid>
         </Box>
