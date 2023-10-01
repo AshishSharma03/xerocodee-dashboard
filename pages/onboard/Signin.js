@@ -66,13 +66,13 @@ function Signin() {
           const res = await axios.post('/api/users/login',{email,password})
           if(res.status === 200){
             setWait(false)
-            // signIn('credentials',res.data)
+            setAlertMsg(true)
+            setMsg( {color:"success",msg:"Login successfull!"})
+            signIn('credentials',res.data)
           }
           }catch(error){
             if(error.response.status === 401){
-              setAlertMsg(true)
               setWait(false)
-              setMsg( {color:"error",msg:"Invalid email or password"})
             }
           }
     }

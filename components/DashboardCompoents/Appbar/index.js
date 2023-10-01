@@ -13,6 +13,7 @@ import {
   Toolbar,
   Typography,
   styled,
+  Tooltip,
 } from "@mui/material";
 import React from "react";
 import theme from "../../../themeRegistery/theme";
@@ -124,15 +125,18 @@ function Navbar() {
             <option value={"Xero code"}>Self hosting</option>
           </NativeSelect>
 
+            <Tooltip title="logout">
+
           <CustomIconButton
             size="small"
             color="primary"
             onClick={() => {
               signOut()
             }}
-          >
+            >
             <PersonOutlineOutlinedIcon />
           </CustomIconButton>
+            </Tooltip>
         </Stack>
       </Toolbar>
     </AppBar>
