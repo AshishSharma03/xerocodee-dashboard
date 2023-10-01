@@ -29,7 +29,7 @@ function Signin() {
   useEffect(()=>    {
 
     console.log(status)
-    if( status === 'authenticated'  ){
+    if( status === 'authenticated'){
       router.push('/')
     }
   },[status])
@@ -70,8 +70,10 @@ function Signin() {
             setMsg( {color:"success",msg:"Login successfull!"})
             signIn('credentials',res.data)
           }
-          }catch(error){
-            if(error.response.status === 401){
+        }catch(error){
+          if(error.response.status === 401){
+            setAlertMsg(true)
+              setMsg( {color:"error",msg:"Invalid email or password!"})
               setWait(false)
             }
           }
