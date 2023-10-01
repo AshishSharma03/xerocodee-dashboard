@@ -6,16 +6,15 @@ import { UpstashRedisAdapter } from "@next-auth/upstash-redis-adapter";
 import { Redis ,upstashRedisClient} from "@upstash/redis";
 import { signIn } from "next-auth/react";
 
-const redis = new Redis({
-   url:"https://gusc1-elegant-bonefish-30471.upstash.io",
-   token:"AXcHACQgZmFjMDA2MDQtYmJhYi00ZDkxLWFkZDctZDVjY2M2ZWU3OWI1YWI4NmQwZmNhODY2NGU3Yzg3ZjdkNGI4ZDdkOTYxOGM="
-})
 
 const authOptions = {
 
     session:{
       type: 'redis',
-      adapter: UpstashRedisAdapter(redis,{
+      adapter: UpstashRedisAdapter(new Redis({
+        url : process.env.UPSTASH_REDIS_URL,
+        token : process.env.UPSTASH_REDIS_TOKEN
+      }),{
       baseKeyPrefix: "auth:", 
       sessionKeyPrefix: "session:", 
       userKeyPrefix: "user:",
