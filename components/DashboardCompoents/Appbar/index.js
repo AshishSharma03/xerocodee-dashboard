@@ -14,8 +14,9 @@ import {
   Typography,
   styled,
   Tooltip,
+  Badge,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import theme from "../../../themeRegistery/theme";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
@@ -37,7 +38,17 @@ const CustomIconButton = styled(IconButton)({
   },
 });
 
+
+
 function Navbar() {
+  const [notifciation,setNotification] = useState(0)
+  useEffect(()=>{
+    setTimeout(()=>{
+        setNotification(1);
+    },1000)
+  },[])
+
+
   return (
     <AppBar position="static" sx={{ boxShadow: "none", background: "none" }}>
       <Toolbar sx={{ background: theme.palette.secondary.main }}>
@@ -93,8 +104,10 @@ function Navbar() {
             onClick={() => {
               console.log("ss");
             }}
-          >
+          > 
+          <Badge badgeContent={notifciation} color="primary">
             <NotificationsOutlinedIcon />
+          </Badge>
           </CustomIconButton>
           <CustomIconButton
             size="small"

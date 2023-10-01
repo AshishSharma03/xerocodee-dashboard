@@ -5,12 +5,13 @@ import {
   Card,
   CircularProgress,
   Grid,
+  IconButton,
   Stack,
   Stepper,
   Switch,
   Typography,
 } from "@mui/material";
-
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 function hexToRgba(hexColor, alpha) {
   const hexNumber = parseInt(hexColor?.substring(1), 16);
   const red = (hexNumber >> 16) & 0xff;
@@ -61,8 +62,11 @@ function StepProgressCard({ step, name, status, color, icon }) {
             alignItems: "center",
           }}
         >
-          <Box component={"img"} src={icon} sx={{ width: "70%" }} />
+          <Box component={"img"} src={icon} sx={{ width: "70%" }} />  
         </Box>
+          {/* <IconButton> */}
+            <MoreVertIcon sx={{fontSize:"30px",color:"#CACACA"}}/>
+          {/* </IconButton> */}
       </Card>
     </Stack>
   );
