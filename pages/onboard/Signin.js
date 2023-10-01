@@ -10,7 +10,7 @@ import { signIn } from "next-auth/react";
 import { ErrorWRapper } from "./Signup";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import {  Alert, IconButton } from "@mui/material";
+import {  Alert, CircularProgress, IconButton } from "@mui/material";
 import axios from "axios";
 import LoadingScreen from "../../components/CoreAssets/LoadingScreen";
 
@@ -24,7 +24,7 @@ function Signin() {
   const [loading, setLoading] = useState(true)
   const [Msg,setMsg] = useState({color:"",msg:""});
   const [AlertMsg,setAlertMsg] = useState(false);
-
+  const[wait,setWait] = useState(false)
   
   useEffect(()=>    {
 
@@ -40,7 +40,7 @@ function Signin() {
       },1000)
       setTimeout(()=>{
         setAlertMsg(false)
-      },5000)
+      },7000)
   
   },)
  
@@ -60,17 +60,19 @@ function Signin() {
       setErrorMsg({ index: 2, msg: "password is required" });
     } else{
       setErrorMsg({index:0,msg:""})
-
+      setWait(true)
       try{
          
           const res = await axios.post('/api/users/login',{email,password})
           if(res.status === 200){
-            signIn('credentials',res.data)
+            setWait(false)
+            // signIn('credentials',res.data)
           }
           }catch(error){
             if(error.response.status === 401){
               setAlertMsg(true)
-              setMsg( {color:"error",msg:"User is not valid"})
+              setWait(false)
+              setMsg( {color:"error",msg:"Invalid email or password"})
             }
           }
     }
@@ -127,7 +129,7 @@ function Signin() {
          
          type={visible ? "text" : "password"}/>
          </ErrorWRapper>
-        <OnBoardButton text="Sign in" onClick={handleLogin} />
+        <OnBoardButton  disable={wait} text={ wait?<CircularProgress size="25px"  thickness={7} sx={{color:"#fff"}} />:"Sign in"} onClick={handleLogin} />
       </OnboardCard>
     </CenterBox>
   );

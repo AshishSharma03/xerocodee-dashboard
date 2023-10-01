@@ -92,7 +92,7 @@ function Signin() {
     },1000)
     setTimeout(()=>{
       setAlertMsg(false)
-    },5000)
+    },6000)
 
     
 },)
@@ -296,7 +296,7 @@ if (loading) {
             }}
           />
         </ErrorWRapper>
-        <OnBoardButton text={ wait?<CircularProgress size="20px" thickness={7} sx={{color:"#fff"}} />:"Sign up" } onClick={Validate} />
+        <OnBoardButton disable={wait}  text={ wait?<CircularProgress size="25px" thickness={7} sx={{color:"#fff"}} />:"Sign up" } onClick={Validate} />
       </OnboardCard>
     </CenterBox>
   );

@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
   try {
     const user = await authuser.findOne({email});
-    if (user && bcrypt.compare(password,user.password)) {
+    if (user && bcrypt.compareSync(password,user.password)) {
       const token = signToken(user);
       return res.status(200).json({
         token,

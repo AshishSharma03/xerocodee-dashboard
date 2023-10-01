@@ -9,16 +9,16 @@ import { signIn } from "next-auth/react";
 
 const authOptions = {
 
-    session:{
-      type: 'redis',
-      adapter: UpstashRedisAdapter(new Redis({
-        url : process.env.UPSTASH_REDIS_URL,
-        token : process.env.UPSTASH_REDIS_TOKEN
-      }),{
-      baseKeyPrefix: "auth:", 
-      sessionKeyPrefix: "session:", 
-      userKeyPrefix: "user:",
-    }),},
+    // session:{
+    //   type: 'redis',
+    //   adapter: UpstashRedisAdapter(new Redis({
+    //     url : process.env.UPSTASH_REDIS_URL,
+    //     token : process.env.UPSTASH_REDIS_TOKEN
+    //   }),{
+    //   baseKeyPrefix: "auth:", 
+    //   sessionKeyPrefix: "session:", 
+    //   userKeyPrefix: "user:",
+    // }),},
 
   providers: [
     GithubProvider({
