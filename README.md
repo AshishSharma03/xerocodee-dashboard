@@ -56,7 +56,7 @@ Follow these steps to get your development environment set up:
 
 ## Authentication
 
-This project uses Next-auth for authentication and Redis for Single Sign-On (SSO). Make sure to configure your authentication and SSO settings properly.
+This project uses Next-auth for authentication and WorkOS for  Single Sign-On (SSO). Make sure to configure your authentication and SSO settings properly.
 
 ## Improvements
 
