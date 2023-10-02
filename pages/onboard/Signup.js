@@ -123,13 +123,14 @@ if (loading) {
           setWait(false)
           setMsg( {color:"success",msg:"User succesfully registerd"})
           const otp = generateOTP();
-          await sendAuthorizationEmail(emailID, otp);
-          setOtpbverify(true)
-          if(otp === InputOtp){
+          // await sendAuthorizationEmail(emailID, otp);
+          // setOtpbverify(true)
+          // if(otp === InputOtp){
+            router.push('/onboard/YourRole')
             signIn('credentials',res.data)
-          }else{
+          // }else{
             
-          }
+          // }
           
 
         }

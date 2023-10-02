@@ -10,6 +10,7 @@ const authOptions = {
 
     session:{
       type: 'redis',
+      strategy: 'jwt',
       adapter: UpstashRedisAdapter(new Redis({
         url : process.env.UPSTASH_REDIS_URL,
         token : process.env.UPSTASH_REDIS_TOKEN
@@ -53,6 +54,9 @@ const authOptions = {
     })
   ],
 
+  pages: {
+    newUser: '/onboard/YourRole',
+  },
 
 }
 
